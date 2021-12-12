@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const cors = require('cors');
+// const cors = require('cors');
 const helmet = require('helmet');
 require("dotenv").config()
 const app = express();
@@ -8,7 +8,7 @@ const app = express();
 const cookiePareser = require('cookie-parser')
 const fileUpload = require('express-fileupload')
 
-app.use(cors())
+
 app.use(helmet())
 //for swagger documentation
 const swaggerUi = require("swagger-ui-express");
@@ -47,9 +47,9 @@ app.use("/api/v1",user);
 app.use("/api/v1",product);
 app.use("/api/v1",payment);
 app.use("/api/v1",order);
-// app.get("/signuptest",(req,res)=>{
-//     res.render("signuptest")
-// })
+app.get("/signuptest",(req,res)=>{
+    res.render("signuptest")
+})
 
 //export app js
 module.exports = app;
