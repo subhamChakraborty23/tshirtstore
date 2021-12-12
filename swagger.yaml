@@ -43,9 +43,7 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT 
-security:
-  - cookieAuth: []
-  - bearerAuth: []
+
 
 paths:
   /dummy:
@@ -188,6 +186,9 @@ paths:
 
   /logout:
     get:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - User
       summary: get request to logout the user. Also removes httpOnly cookies 
@@ -211,6 +212,9 @@ paths:
 
   /forgotPassword:
     post:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - User
       summary: sends an email with link to forgot password. Contains the token for user validation. Public hosted version will not send email to your account. Use your own SMTP details to access this feature on local project
@@ -243,6 +247,9 @@ paths:
 
   /password/reset/{token}:
     post:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - User
       summary: Allows user to reset password, validated based on token. send password and confirm password fields
@@ -304,6 +311,9 @@ paths:
 
   /userdashboard:
     get:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - User
       summary: Gets all details about logged in user. Send token in cookies as named token or send Bearer Auth
@@ -345,6 +355,9 @@ paths:
 
   /password/update:
     post:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - User
       summary: User can update the password if he is logged in. Send oldPassword and password
@@ -398,6 +411,9 @@ paths:
 
   /userdashboard/update:
     post:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - User
       summary: User can update the name, emails and photo. Photo is optional
@@ -437,6 +453,9 @@ paths:
 
   /admin/users:
     get:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Admin
       summary: If user is admin, response will get array of all users
@@ -480,6 +499,9 @@ paths:
 
   /admin/user/{id}:
     get:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Admin
       summary: If user is admin, response will get details of 1 user
@@ -595,6 +617,9 @@ paths:
 
   /manager/users:
     get:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Manager
       summary: If manager, response will get array of all users whose role is user
@@ -784,6 +809,9 @@ paths:
 
   /admin/products:
     get:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Admin
       summary: If user is admin, he get all products
@@ -854,6 +882,9 @@ paths:
 
   /admin/product/add:
     post:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Admin
       summary: If admin, Add a product
@@ -960,6 +991,9 @@ paths:
   
   /admin/product/{id}:
     put:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Admin
       summary: If admin, update the product. photos are optional to pass. Rest all body is set to be updated to what you pass here.
@@ -1100,6 +1134,9 @@ paths:
 
   /reviews:
       get:
+        security:
+        - cookieAuth: []
+        - bearerAuth: []
         tags:
           - Product
         summary: A simple get request will give you all reviews for given products
@@ -1145,6 +1182,9 @@ paths:
   
   /review:
       put:
+        security:
+        - cookieAuth: []
+        - bearerAuth: []
         tags:
           - Product
         summary: A logged in user can post a review on any product. If review is already posted, it will just update the existing review
@@ -1262,6 +1302,9 @@ paths:
 
   /order/create:
     post:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Order
       summary: create a new order with given details
@@ -1395,6 +1438,9 @@ paths:
 
   /order/{id}:
     get:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Order
       summary: get details about a order with order id
@@ -1486,6 +1532,9 @@ paths:
 
   /myorder:
     get:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Order
       summary: get order of logged in user
@@ -1569,6 +1618,9 @@ paths:
 
   /admin/orders:
     get:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Admin
       summary: if admin, get list of all orders
@@ -1646,6 +1698,9 @@ paths:
 
   /admin/order/{id}:
     put:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Admin
       summary: if admin, update the status of the order
@@ -1767,6 +1822,9 @@ paths:
 
   /stripekey:
     get:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Payment
       summary: gets you the public stripe key
@@ -1790,6 +1848,9 @@ paths:
 
   /razorpaykey:
     get:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Payment
       summary: gets you the public razorpay key
@@ -1813,6 +1874,9 @@ paths:
 
   /capturestripe:
     post:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Payment
       summary: send amount in number. Send amount after multiplying by 100. Also request from swagger UI are not proper as to capture payment we need to send dummy card details
@@ -1850,6 +1914,9 @@ paths:
 
   /capturerazorpay:
     post:
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
       tags:
         - Payment
       summary: send amount in number. Send amount after multiplying by 100. Check orders tab, not payments. Also request from swagger UI are not proper as to capture payment we need to send dummy card details.
